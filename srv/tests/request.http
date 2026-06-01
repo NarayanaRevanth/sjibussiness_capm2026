@@ -1,0 +1,174 @@
+http://localhost:4004/odata/v4/catalog
+
+### Metadata of the service
+http://localhost:4004/odata/v4/catalog/$metadata
+
+
+### Employee Service
+http://localhost:4004/odata/v4/catalog/EmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C197A7FB
+
+### First 10 employees
+http://localhost:4004/odata/v4/catalog/EmployeeSrv?$top=10
+
+### Skip First 10 employees and display next 10 employees
+http://localhost:4004/odata/v4/catalog/EmployeeSrv?$top=10&$skip=10
+
+
+### Fetch all male employees
+http://localhost:4004/odata/v4/catalog/EmployeeSrv?$filter=gender eq 'F'
+
+
+### Fetch only employee details
+http://localhost:4004/odata/v4/catalog/EmployeeSrv?$select=nameFirst,nameLast,nameInitials,nameMiddle,phoneNumber,email,salaryAmount
+
+### Count all employees
+http://localhost:4004/odata/v4/catalog/EmployeeSrv/$count
+
+### Purchase Orders with items serviec
+http://localhost:4004/odata/v4/catalog/PurchaseOrderSrv?$expand=Items
+
+###
+POST http://localhost:4004/odata/v4/poapp/EmployeeSrv
+Content-Type: application/json
+
+{
+      "ID": "02BD2137-0890-1EEA-A6C2-BB55C19788CC",
+      "accountNumber": "777888999",
+      "bankId": "510000111",
+      "bankName": "My Bank of Baroda",
+      "Currency_code": "USD",
+      "email": "kl.rahul@itelo.info",
+      "gender": "M",
+      "language": "E",
+      "loginName": "KLRAHUL",
+      "nameFirst": "K L",
+      "nameInitials": null,
+      "nameLast": "Rahul",
+      "nameMiddle": null,
+      "phoneNumber": "+1 999 374 524",
+      "salaryAmount": "55500.00"
+}
+
+###
+PATCH http://localhost:4004/odata/v4/poapp/EmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C19788CC
+Content-Type: application/json
+
+{
+    "Currency_code": "EUR",
+    "salaryAmount": "500000.00"
+}
+
+
+###
+GET http://localhost:4004/odata/v4/catalog/EmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C19788CC
+
+
+###
+DELETE  http://localhost:4004/odata/v4/catalog/EmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C19788CC
+
+### 
+GET http://localhost:4004/odata/v4/poapp/getHighestSalariedEmployee
+
+
+### Purchase Orders with items serviec
+http://localhost:4004/odata/v4/poapp/ProductSrv
+
+
+###Post new product
+POST http://localhost:4004/odata/v4/poapp/ProductSrv
+
+Content-Type: application/json
+{
+      "CATEGORY": "Notebooks",
+      "CURRENCY_CODE_code": "EUR",
+      "DEPTH": "18.00",
+      "DESCRIPTION": "HP Victus 4* 4.20GHz 16GB RAM 512GB SSD Gaming Laptop",
+      "DIM_UNIT": "MM",
+      "HEIGHT": "3.00",
+      "MEASURE_UNIT": "EA",
+      "NODE_KEY": "74867AD200E41EDBA5D8B06B26EB4099",
+      "PRICE": "956.00",
+      "PRODUCT_ID": "HPV-1000",
+      "SUPPLIER_GUID_NODE_KEY": "74867AD200E41EDBA5D8B06885AB2099",
+      "TAX_TARIF_CODE": 1,
+      "TYPE_CODE": "PR",
+      "WEIGHT_MEASURE": "4.20",
+      "WEIGHT_UNIT": "KG",
+      "WIDTH": "30.00"
+}
+
+### GET PRODUCT
+GET http://localhost:4004/odata/v4/poapp/ProductSrv/74867AD200E41EDBA5D8B06B26EB4099
+
+###post
+POST http://localhost:4004/odata/v4/poapp/ProductSrv
+Content-Type: application/json
+
+{
+    "CATEGORY": "Notebooks",
+    "CURRENCY_CODE_code": "EUR",
+    "DEPTH": "18.00",
+    "DESCRIPTION": "HP Victus 4* 4.20GHz 16GB RAM 512GB SSD Gaming Laptop",
+    "DIM_UNIT": "MM",
+    "HEIGHT": "3.00",
+    "MEASURE_UNIT": "EA",
+    "NODE_KEY": "74867AD200E41EDBA5D8B06B26EB4099",
+    "PRICE": "8000.00",
+    "PRODUCT_ID": "HT-1000",
+    "SUPPLIER_GUID_NODE_KEY": "74867AD200E41EDBA5D8B06885AB2099",
+    "TAX_TARIF_CODE": 1,
+    "TYPE_CODE": "PR",
+    "WEIGHT_MEASURE": "4.20",
+    "WEIGHT_UNIT": "KG",
+    "WIDTH": "30.00"
+}
+
+### patch address
+PATCH http://localhost:4004/odata/v4/poapp/ProductSrv/74867AD200E41EDBA5D8B06B26EB4099
+Content-Type: application/json
+
+{
+    "CURRENCY_CODE_code": "USD",
+    "PRICE": "10000.00"
+}
+
+### delete address
+DELETE http://localhost:4004/odata/v4/poapp/ProductSrv/74867AD200E41EDBA5D8B06B26EB4099
+
+### get address
+http://localhost:4004/odata/v4/poapp/AddressSrv
+
+### post address
+POST http://localhost:4004/odata/v4/poapp/AddressSrv
+Content-Type: application/json
+
+{
+    "ADDRESS_TYPE": "9",
+    "BUILDING": "9",
+    "CITY": "Pune",
+    "COUNTRY": "IN",
+    "LATITUDE": "42.331816",
+    "LONGITUDE": "12.736955",
+    "NODE_KEY": "74867AD200E41EDBA5D8B06885664099",
+    "POSTAL_CODE": "45001",
+    "STREET": "Hinjewadi",
+    "VAL_END": "2020-06-25",
+    "VAL_START": "0001-01-20"
+}
+
+### delete Address
+get http://localhost:4004/odata/v4/poapp/AddressSrv/74867AD200E41EDBA5D8B06885664099
+
+### get higest priced product
+GET http://localhost:4004/odata/v4/poapp/getMostExpensiveProduct
+
+### get sum of items for given purchase order
+GET http://localhost:4004/odata/v4/poapp/PurchaseOrderSrv/74867AD200E41EDBA5D8B0C98DC28052/getsumofitems_forPO()
+
+### get discounted price for given product
+POST http://localhost:4004/odata/v4/poapp/PurchaseOrderSrv/74867AD200E41EDBA5D8B0C98DC28052/discountPrice
+Content-Type: application/json
+
+{
+}
+
