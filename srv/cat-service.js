@@ -82,7 +82,7 @@ module.exports = cds.service.impl(async function () {
 
 
     //get sum of items for given purchase order.
-    /*this.on('getsumofitems_forPO', async (request, response) => {
+    this.on('getsumofitems_forPO', async (request, response) => {
         const poKey = request.params[0]; // Assuming the key is passed as a parameter in the URL
         try
         {
@@ -113,7 +113,7 @@ module.exports = cds.service.impl(async function () {
         catch(error){
             return 'ERROR' + error.toString();
         }
-    }) */
+    }) 
 
     this.on('getsumofitems_forPO', async (request, response) => {
         const poKey = request.params[0]; // Assuming the key is passed as a parameter in the URL
