@@ -6,7 +6,7 @@ type outputResponse : {
             totalTaxAmount : Decimal(15,2);
         }
 
-service CatalogService @(path : 'poapp'){
+service CatalogService @(path : 'poapp', require: 'authenticated-user' ){
 
     entity EmployeeSrv as projection on master.Employees;
 
@@ -47,6 +47,10 @@ service CatalogService @(path : 'poapp'){
     actions
     {
         //function getsumofitems_forPO() returns Decimal(15,2);
+        @cds.odata.bindingparameter.name : 'DP'
+        @Common.SideEffects : {
+            TargetProperties : ['DP/GROSS_AMOUNT', 'DP/NET_AMOUNT', 'DP/TAX_AMOUNT']
+        }
         action discountPrice() ;//returns array of PurchaseOrderSrv;
         function getsumofitems_forPO() returns outputResponse;
     };

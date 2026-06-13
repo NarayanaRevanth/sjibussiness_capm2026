@@ -8,10 +8,10 @@ http://localhost:4004/odata/v4/catalog/$metadata
 http://localhost:4004/odata/v4/catalog/EmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C197A7FB
 
 ### First 10 employees
-http://localhost:4004/odata/v4/catalog/EmployeeSrv?$top=10
+http://localhost:4004/odata/v4/poapp/EmployeeSrv?$top=10
 
 ### Skip First 10 employees and display next 10 employees
-http://localhost:4004/odata/v4/catalog/EmployeeSrv?$top=10&$skip=10
+http://localhost:4004/odata/v4/poapp/EmployeeSrv?$top=10&$skip=10
 
 
 ### Fetch all male employees
